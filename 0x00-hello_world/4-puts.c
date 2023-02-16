@@ -1,6 +1,6 @@
 #Include < stdio.h >
 /**
- * main - print line using  puts function
+ * main - Prints line using puts function
  *
  * Return: 0
  */
