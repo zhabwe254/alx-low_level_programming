@@ -1,6 +1,7 @@
-#Include < stdio.h >
+#include <stdio.h>
 /**
  * main - A program that prints a line using printf function
+ * Description: It is printing printf
  * Return: 0 (Success)
 */
 
