@@ -5,11 +5,12 @@
  * Return: always 0 (success)
  */
 int main(void)
-{char c;
+{
+	char c;
 
-	c = "a";
-	whie
-		(c <= "z") {
+	c = 'a';
+	while
+		(c <= 'z') {
 			putchar(c);
 			c++;
 		}
