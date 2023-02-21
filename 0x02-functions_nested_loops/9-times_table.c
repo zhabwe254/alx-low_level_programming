@@ -4,6 +4,7 @@
  * times_table - Prints the 9 times table, starting with 0.
  */
 void times_table(void)
+
 {
 	int x, y, z, u, d;
 
@@ -22,7 +23,7 @@ void times_table(void)
 	_putchar(u + '0');
 	}
 	else
-	}
+	{
 	if (y != 0)
 	{
 	_putchar(44);
@@ -30,5 +31,8 @@ void times_table(void)
 	_putchar(32);
 	}
 	_putchar(z + '0');
+	}
+	}
+	_putchar('\n');
 	}
 }
