@@ -12,10 +12,11 @@
 
 char *_strchr(char *s, char c)
 {
-	if (s == NILL) {
-		return NULL;
+	if (s == NILL)
+	{
+	return (NULL);
 	}
-	
+
 	while (*s != '\0')
 	{
 		if (*s == c)
@@ -23,11 +24,11 @@ char *_strchr(char *s, char c)
 		return (s);
 		}
 		s++;
-    }
+	}
 	if (*s == '\0' && c == '\0')
 	{
-		return (s);
+	return (s);
 	}
-	
+
 	return (NULL);
 }
