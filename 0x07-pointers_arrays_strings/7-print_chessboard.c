@@ -1,7 +1,5 @@
 #include "main.h"
 
-#include "holberton.h"
-
 /**
  * print_chessboard - Prints the chessboard
  * @a: The chessboard to be printed
