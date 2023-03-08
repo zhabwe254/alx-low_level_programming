@@ -1,24 +1,17 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
- * factorial - Returns the factorial of a given number.
+ * _print_rev_recursion - Prints a string in reverse using recursion.
  *
- * @n: The number to calculate the factorial of.
- *
- * Return: The factorial of n, or -1 if n is negative.
+ * @s: The string to be printed in reverse.
  */
-int factorial(int n)
+
+void _print_rev_recursion(char *s)
 {
-	if (n < 0)
+	if (*s == '\0')
 	{
-		return (-1);
+		return;
 	}
-	else if (n == 0 || n == 1)
-	{
-		return (1);
-	}
-	else
-	{
-		return (n * factorial(n - 1));
-	}
+	_print_rev_recursion(s + 1);
+	_putchar(*s);
 }
