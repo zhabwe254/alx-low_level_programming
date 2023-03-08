@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
  * factorial - Returns the factorial of a given number.
@@ -9,16 +9,19 @@
  */
 int factorial(int n)
 {
+	int result = 1;
+
 	if (n < 0)
 	{
 		return (-1);
 	}
-	else if (n == 0 || n == 1)
+
+	while (n > 0)
 	{
-		return (1);
+		result *= n;
+		n--;
 	}
-	else
-	{
-		return (n * factorial(n - 1));
-	}
+
+
+		return (result);
 }
