@@ -16,12 +16,12 @@ int factorial(int n)
 		return (-1);
 	}
 
-	while (n > 0)
+	else if (n == 0)
 	{
-		result *= n;
-		n--;
+		return (1);
 	}
-
-
-		return (result);
+	else
+	{
+		return (n * factorial(n - 1));
+	}
 }
