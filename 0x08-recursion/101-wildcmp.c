@@ -1,32 +1,34 @@
 #include "main.h"
 
 /**
- * wildcmp - compares strings and returns 1 the strings are identical,returns 0
- * @s1: first string to compare
- * @s2: second string to compare, may contain wildcard character *
+ * str_similarity_checker - Determine if two strings are identical or similar.
+ * @s1: Base address of the first string.
+ * @s2: Base address of the second string.
+ * @i: Left index for the first string.
+ * @j: Special index (joker) for the second string.
+ * Return: 1 if the strings are identical or similar, 0 otherwise.
+ */
+int str_similarity_checker(char *s1, char *s2, int i, int j)
+{
+	if (s1[i] == '\0' && s2[j] == '\0')
+		return (1);
+	if (s1[i] == s2[j])
+		return (str_similarity_checker(s1, s2, i + 1, j + 1));
+	if (s1[i] == '\0' && s2[j] == '*')
+		return (str_similarity_checker(s1, s2, i, j + 1));
+	if (s2[j] == '*')
+		return (str_similarity_checker(s1, s2, i + 1, j) || str_similarity_checker(s1, s2, i, j + 1));
+	return (0);
+}
+
+/**
+ * wildcmp - Check if two strings can be considered identical or similar.
+ * @s1: Base address of the first string.
+ * @s2: Base address of the second string.
  *
- * Return: 1 if strings are identical, 0 otherwise
+ * Return: 1 if the strings are considered identical or similar, 0 otherwise.
  */
 int wildcmp(char *s1, char *s2)
 {
-	if (*s1 == '\0')
-	{
-		if (*s2 == '\0' || (*s2 == '*' && *(s2 + 1) == '\0'))
-			return (1);
-		return (0);
-	}
-
-	if (*s2 == '*')
-	{
-		if (*(s2 + 1) == '\0')
-			return (1);
-		if (wildcmp(s1, s2 + 1))
-			return (1);
-		return (wildcmp((s1 + 1, s2)));
-	}
-
-	if (*s1 == *s2)
-		return (wildcmp(s1 + 1, s2 + 1));
-
-	return (0);
+	return (str_similarity_checker(s1, s2, 0, 0));
 }
