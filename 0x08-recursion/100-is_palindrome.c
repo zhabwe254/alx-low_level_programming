@@ -14,7 +14,6 @@ int is_palindrome(char *s)
 	if (s == NULL)
  	return (0);
 
-    /* Calculate the length of the string */
 	while (s[len] != '\0')
 		len++;
 
@@ -24,10 +23,10 @@ int is_palindrome(char *s)
 	while (end > start)
 	{
 		if (*start != *end)
-		return (0);
+			return (0);
 
-	start++;
-	end--;
+		start++;
+		end--;
 	}
 
 	return (1);
