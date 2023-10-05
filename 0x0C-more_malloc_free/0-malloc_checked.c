@@ -1,4 +1,5 @@
 #include <stdlib.h>
+
 #include "main.h"
 
 /**
@@ -10,7 +11,7 @@
  */
 void *malloc_checked(unsigned int b)
 {
-	void *ptr = malloc(b);
+	void *ptr
 
 	ptr = malloc(b);
 
