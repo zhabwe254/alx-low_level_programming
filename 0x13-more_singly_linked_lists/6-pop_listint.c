@@ -1,4 +1,4 @@
-#include <stddef.h>
+#include <stddef.h>			
 #include "lists.h"
 
 /**
@@ -26,5 +26,5 @@ int pop_listint(listint_t **head)
 
 	*head = h;
 
-	return (data);
+	return (hdata);
 }
