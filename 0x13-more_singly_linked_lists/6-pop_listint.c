@@ -2,10 +2,10 @@
 #include "lists.h"
 
 /**
- * pop_listint - Deletes the head node of a listint_t list and returns its data.
+ * pop_listint - Deletes the head node of a listint_t list and returns data.
  * @head: Pointer to a pointer to the head of the list.
  *
- * Return: The data (n) of the deleted head node, or 0 if the list is empty.
+ * Return: The data (n) of the deleted head node, or 0 if empty.
  */
 int pop_listint(listint_t **head)
 {
@@ -13,7 +13,7 @@ int pop_listint(listint_t **head)
 	int data = 0;
 
 	if (*head == NULL)
-	return 0;
+	return (0);
 
 	temp = *head;
 	*head = (*head)->next;
