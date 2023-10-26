@@ -5,7 +5,7 @@
  * @n: The number to extract the bit from
  * @index: The index of the bit to retrieve (0-based)
  *
- * Return: The value of the bit at the specified index or -1 if an error occurs.
+ * Return: The value of the bit at the specified index or -1 error occurs.
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
@@ -14,5 +14,5 @@ int get_bit(unsigned long int n, unsigned int index)
 		return (-1);
 	}
 
-	return (int)((n >> index) & 1);
+	return ((int)((n >> index) & 1));
 }
