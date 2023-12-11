@@ -14,4 +14,3 @@ int _atoi(char *s)
 	a++;
 	return (a);
 }
-
