@@ -1,0 +1,62 @@
+CC = gcc
+SRC = $(shell find . -type f -name '*.c')
+NAME = school
+RM = rm -f
+
+# Implicit dependencies between source and object files
+%.o: %.c
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+# Build the executable
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+# Object files (derived from source files)
+$(OBJ) = $(SRC:.c=.o)
+
+# Clean rules
+clean:
+	$(RM) $(NAME) $(OBJ) *.a *.so
+
+oclean:
+	$(RM) $(OBJ)
+
+fclean: clean
+	$(RM) *.out *.bak *.gcda *.gcno *.glk *.gcov *.trs
+
+re: clean all
+
+.PHONY: clean oclean fclean re
+
+# Ensure m.h exists before compilation
+m.h:
+	@echo "m.h is missing. Please create it."
+	@$(RM) $(OBJ)
+	@exit 1
+
+# Prevent $(CC) usage more than once
+dummy-cc:
+	@echo "Error: $(CC) already used."
+	@exit 1
+
+# Prevent $(CFLAGS) usage
+dummy-cflags:
+	@echo "Error: $(CFLAGS) usage not allowed."
+	@exit 1
+
+# Prevent $(OBJ) rule creation
+dummy-obj:
+	@echo "Error: $(OBJ) rule creation not allowed."
+	@exit 1
+
+# Prevent %.o: %.c rule creation
+dummy-percent:
+	@echo "Error: %.o: %.c rule creation not allowed."
+	@exit 1
+
+# Handle files with rule names
+%.c dummy-%.c:
+	@echo "Ignoring unexpected file: $<"
+
+%.o dummy-%.o:
+	@echo "Ignoring unexpected file: $<"
