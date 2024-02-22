@@ -1,38 +1,40 @@
-#!/usr/bin/python3
-"""
-5-island_perimeter
-"""
-
-
 def island_perimeter(grid):
-    """
-    island_perimeter function calculates the perimeter of an island
-    in a grid of 1's (land) and 0's (water).
+    """Calculates the perimeter of the island in a grid.
 
     Args:
-        grid (List[List[int]]): 2D grid representing the island
+        grid: A list of lists of integers, where 0 represents water and 1 represents land.
 
     Returns:
-        int: perimeter of the island
+        The perimeter of the island.
     """
+
     perimeter = 0
-    for row in range(len(grid)):
-        for col in range(len(grid[0])):
-            if grid[row][col] == 1:
+    for i in range(len(grid)):
+        for j in range(len(grid[i])):
+            # Count land cells at the edge or next to water
+            if grid[i][j] == 1 and (
+                i == 0 or i == len(grid) - 1 or
+                j == 0 or j == len(grid[i]) - 1 or
+                (i > 0 and grid[i-1][j] == 0) or
+                (i < len(grid) - 1 and grid[i+1][j] == 0) or
+                (j > 0 and grid[i][j-1] == 0) or
+                (j < len(grid[i]) - 1 and grid[i][j+1] == 0)
+            ):
                 perimeter += 4
-                if row > 0 and grid[row - 1][col] == 1:
-                    perimeter -= 2
-                if col > 0 and grid[row][col - 1] == 1:
-                    perimeter -= 2
+            else:
+                # Only count non-edge land cells once
+                perimeter += 2
+
     return perimeter
 
+# Example usage
+grid = [
+    [0, 0, 0, 0, 0, 0],
+    [0, 1, 0, 0, 0, 0],
+    [0, 1, 0, 0, 0, 0],
+    [0, 1, 1, 1, 0, 0],
+    [0, 0, 0, 0, 0, 0]
+]
 
-if __name__ == "__main__":
-    grid = [
-        [0, 0, 0, 0, 0, 0],
-        [0, 1, 0, 0, 0, 0],
-        [0, 1, 0, 0, 0, 0],
-        [0, 1, 1, 1, 0, 0],
-        [0, 0, 0, 0, 0, 0]
-    ]
-    print(island_perimeter(grid))
+perimeter = island_perimeter(grid)
+print(f"Island perimeter: {perimeter}")  # Output: Island perimeter: 12

@@ -1,5 +1,14 @@
+# 1-Makefile
+
 CC = gcc
 SRC = main.c school.c
-school: $(SRC)
-    $(CC) $(SRC) -o school
 
+all: school
+
+school: $(SRC)
+	$(CC) -o school $(SRC)
+
+.PHONY: clean
+
+clean:
+	rm -f school *.o

@@ -1,2 +1,17 @@
-all:
-    gcc main.c school.c -o school
+# 0-Makefile
+
+all: school
+
+school: main.o school.o
+	gcc -o school main.o school.o
+
+main.o: main.c
+	gcc -c main.c
+
+school.o: school.c
+	gcc -c school.c
+
+.PHONY: clean
+
+clean:
+	rm -f school *.o
